@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Le jardin royal</title>
+<title>Le Jardin de Sowji</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -26,7 +26,7 @@
 
 <p class="phrase">
 
-Chaque fleur cache une lettre.
+Chaque fleur cache une surprise.
 
 <br><br>
 
@@ -39,7 +39,6 @@ Chaque jour, le jardin révèle un nouveau souvenir.
 </p>
 
 
-
 <div class="chemin" id="chemin"></div>
 
 
@@ -47,9 +46,7 @@ Chaque jour, le jardin révèle un nouveau souvenir.
 
 
 
-
 <script src="lettres.js"></script>
-
 
 
 <script>
@@ -64,48 +61,120 @@ const debut =
 new Date("2026-07-21");
 
 
+
 const fin =
 new Date("2026-08-30");
+
+
+
+const mariage =
+new Date("2026-08-21");
 
 
 
 const maintenant =
 new Date();
 
+
 maintenant.setHours(0,0,0,0);
 
 
 
-const grandJour =
-new Date("2026-08-30");
+mariage.setHours(0,0,0,0);
 
-grandJour.setHours(0,0,0,0);
-
+fin.setHours(0,0,0,0);
 
 
-let reste =
+
+
+
+// COMPTE A REBOURS INTELLIGENT
+
+
+let compteurTexte="";
+
+let dateCible;
+
+
+
+if(maintenant < mariage){
+
+
+dateCible=mariage;
+
+
+compteurTexte="Encore {jours} jours avant le grand jour 💍";
+
+
+}
+
+else if(maintenant < fin){
+
+
+dateCible=fin;
+
+
+compteurTexte="Encore {jours} jours de festivité 👑";
+
+
+}
+
+else{
+
+
+compteurTexte="Maintenant a toi d'écrire ton FOREVER💋 ";
+
+
+}
+
+
+
+
+
+if(dateCible){
+
+
+let jours=
+
 Math.ceil(
-(grandJour-maintenant)
+
+(dateCible-maintenant)
+
 /(1000*60*60*24)
+
 );
 
 
 
-document.getElementById("compteur").innerHTML =
+compteurTexte=
 
-reste > 0 ?
+compteurTexte.replace(
 
-"Encore "+reste+" jours avant le grand jour 🌹"
+"{jours}",
 
-:
+jours
 
-"Le grand jour est arrivé 👑";
+);
+
+
+}
+
+
+
+document.getElementById("compteur").innerHTML=
+
+compteurTexte;
+
+
+
+
 
 
 
 
 
 function afficherDate(date){
+
 
 return date.toLocaleDateString(
 
@@ -121,7 +190,10 @@ month:"long"
 
 );
 
+
 }
+
+
 
 
 
@@ -161,8 +233,6 @@ let ouvrable=false;
 
 
 
-// fleurs ouvertes seulement si la date est arrivée
-
 if(dateFleur <= maintenant){
 
 
@@ -179,17 +249,7 @@ ouvrable=true;
 
 
 
-// dernière fleur
-
-if(
-
-dateFleur.getTime()
-
-===
-
-fin.getTime()
-
-){
+if(dateFleur.getTime() === fin.getTime()){
 
 
 symbole="🌹";
@@ -205,6 +265,8 @@ ouvrable=true;
 
 
 }
+
+
 
 
 
@@ -237,16 +299,20 @@ ${afficherDate(dateFleur)}
 
 
 
+
+
+
 if(ouvrable){
 
 
 fleur.onclick=function(){
 
 
-
 window.location.href=
 
-"lettre.html?date="+
+"lettre.html?date="
+
++
 
 dateFleur.toISOString();
 
@@ -256,6 +322,8 @@ dateFleur.toISOString();
 
 
 }
+
+
 
 
 
@@ -279,15 +347,9 @@ dateActuelle.getDate()+1
 
 
 
-// MESSAGE SECRET DU 29 AOÛT
 
 
-let aujourdHui =
-new Date();
-
-
-aujourdHui.setHours(0,0,0,0);
-
+// SECRET DU 29 AOÛT
 
 
 let secret =
@@ -300,7 +362,7 @@ secret.setHours(0,0,0,0);
 
 
 
-if(aujourdHui.getTime() === secret.getTime()){
+if(maintenant.getTime() === secret.getTime()){
 
 
 
@@ -321,11 +383,11 @@ message.innerHTML=
 
 <br><br>
 
-Une porte du palais semble encore cachée...
+Le jardin semble arrivé au bout du chemin...
 
 <br><br>
 
-Certains secrets attendent le bon moment pour apparaître.
+Mais un dernier secret attend demain.
 
 `;
 
@@ -336,7 +398,6 @@ document.querySelector(".jardin")
 .appendChild(message);
 
 
-
 }
 
 
@@ -345,12 +406,12 @@ document.querySelector(".jardin")
 
 
 
-// PLUIE D'ÉTOILES MAGIQUES
 
+
+// PLUIE D'ÉTOILES
 
 
 function creerEtoile(){
-
 
 
 const etoiles=[
@@ -359,9 +420,9 @@ const etoiles=[
 
 "⭐",
 
-"❤️",
+"💛",
 
-"💛"
+"❤️"
 
 ];
 
@@ -370,9 +431,7 @@ const etoiles=[
 const p=document.createElement("div");
 
 
-
 p.className="petale";
-
 
 
 p.innerHTML=
@@ -411,7 +470,7 @@ document.body.appendChild(p);
 
 
 
-setTimeout(function(){
+setTimeout(()=>{
 
 p.remove();
 
@@ -428,7 +487,6 @@ setInterval(creerEtoile,350);
 
 
 </script>
-
 
 
 </body>
