@@ -116,7 +116,7 @@ dateCible=fin;
 
 compteurTexte=
 
-"💍Encore {jours} jours de festivité 🥂";
+"Encore {jours} jours de festivité 👑💍";
 
 
 }
@@ -126,7 +126,7 @@ else{
 
 compteurTexte=
 
-"Maintenant commence votre FOREVER 💋";
+"Maintenant commence votre FOREVER 💋👑";
 
 
 }
@@ -177,11 +177,6 @@ compteurTexte;
 
 
 
-// ======================
-// DATES
-// ======================
-
-
 function afficherDate(date){
 
 
@@ -198,6 +193,7 @@ month:"long"
 }
 
 );
+
 
 }
 
@@ -263,7 +259,7 @@ ouvrable=true;
 
 
 
-// Dernière fleur
+// ROSE FINALE
 
 
 if(dateFleur.getTime() === fin.getTime()){
@@ -272,14 +268,6 @@ if(dateFleur.getTime() === fin.getTime()){
 symbole="🌹";
 
 classe="finale";
-
-
-if(dateFleur <= maintenant){
-
-document.body.classList.add("grand-jour");
-
-}
-
 
 
 if(dateFleur <= maintenant){
@@ -326,11 +314,15 @@ ${afficherDate(dateFleur)}
 
 
 
+
 if(ouvrable){
 
 
 fleur.onclick=function(){
 
+
+
+// Dernière rose
 
 if(dateFleur.getTime() === fin.getTime()){
 
@@ -357,8 +349,7 @@ Ma chère Sowji,
 
 <br><br>
 
-Toutes les fleurs de ce jardin ont grandi
-jour après jour.
+Toutes les fleurs de ce jardin ont grandi jour après jour.
 
 <br><br>
 
@@ -374,7 +365,7 @@ Mais ce n'est pas la fin.
 
 <br><br>
 
-C'est le début de notre FOREVER. ❤️
+C'est le début de notre FOREVER ❤️
 
 <br><br>
 
@@ -404,8 +395,6 @@ dateFleur.toISOString();
 
 }
 
-
-};
 
 
 };
@@ -507,7 +496,7 @@ document.querySelector(".jardin")
 
 
 // ======================
-// PLUIE D'ETOILES MAGIQUES
+// PLUIE D'ETOILES
 // ======================
 
 
