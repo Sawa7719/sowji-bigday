@@ -64,57 +64,38 @@ jusqu'au plus beau des jours.
 <script>
 
 
-
 const chemin =
-
 document.getElementById("chemin");
 
 
-
 const debut =
-
 new Date("2026-07-21");
 
 
 const fin =
-
 new Date("2026-08-30");
 
 
-
 const aujourdHui =
-
 new Date();
 
 
 
-
-// Date du grand jour
-
 const grandJour =
-
 new Date("2026-08-30");
 
 
 
-const difference =
-
+let difference =
 grandJour - aujourdHui;
 
 
-
-const jours =
-
+let jours =
 Math.max(
-
 0,
-
 Math.ceil(
-
 difference / (1000*60*60*24)
-
 )
-
 );
 
 
@@ -127,23 +108,14 @@ document.getElementById("compteur").innerHTML =
 
 
 
-
-
 function afficherDate(date){
 
-
 return date.toLocaleDateString(
-
 "fr-FR",
-
 {
-
 day:"numeric",
-
 month:"long"
-
 }
-
 );
 
 }
@@ -153,83 +125,77 @@ month:"long"
 
 
 let dateActuelle =
-
 new Date(debut);
-
 
 
 
 while(dateActuelle <= fin){
 
 
-
 let cleDate =
-
 dateActuelle.toISOString().split("T")[0];
 
 
 
 let fleur =
-
 document.createElement("div");
 
 
 
-fleur.className =
-
-"fleur-jardin";
-
+let classe =
+"lune";
 
 
+let symbole =
+"🌙";
 
 
-let symbole = "🌙";
-
-let classe = "lune";
-
-let disponible = false;
+let ouvrable =
+false;
 
 
 
+// DERNIERE FLEUR
+
+if(cleDate === "2026-08-30"){
 
 
-/*
-La mémoire du jardin
-*/
+symbole="🌹";
+
+classe="finale";
+
+ouvrable=true;
 
 
-let souvenir =
+}
+
+
+// LETTRES EXISTANTES
+
+else if(
 
 localStorage.getItem(
-
 "sowji-"+cleDate
+)
 
-);
-
-
-
-
-
-if(souvenir){
+){
 
 
 symbole="🪷";
 
 classe="lotus";
 
-disponible=true;
+ouvrable=true;
 
 
 }
 
 
-
+// JOUR ACTUEL
 
 else if(
 
-cleDate ===
-
-aujourdHui.toISOString().split("T")[0]
+cleDate === aujourdHui.toISOString().split("T")[0]
 
 ){
 
@@ -238,7 +204,7 @@ symbole="💎";
 
 classe="bijou";
 
-disponible=true;
+ouvrable=true;
 
 
 }
@@ -246,10 +212,12 @@ disponible=true;
 
 
 
+fleur.className =
+"fleur-jardin";
+
 
 
 fleur.innerHTML =
-
 
 `
 
@@ -258,7 +226,6 @@ fleur.innerHTML =
 ${symbole}
 
 </div>
-
 
 <div class="date-fleur">
 
@@ -271,39 +238,16 @@ ${afficherDate(dateActuelle)}
 
 
 
+if(ouvrable){
 
 
-
-if(disponible){
-
+fleur.onclick=function(){
 
 
-fleur.onclick = function(){
+if(cleDate==="2026-08-30"){
 
 
-
-localStorage.setItem(
-
-"sowji-ouvert-"+cleDate,
-
-"true"
-
-);
-
-
-
-window.location.href =
-
-"lettre.html?date="
-
-+
-
-dateActuelle.toISOString();
-
-
-
-};
-
+window.location.href="grandjour.html";
 
 
 }
@@ -311,23 +255,18 @@ dateActuelle.toISOString();
 else{
 
 
-fleur.onclick=function(){
+window.location.href=
 
-
-alert(
-
-"Cette lettre poursuit encore son voyage..."
-
-);
-
-
-};
-
+"lettre.html?date="+dateActuelle.toISOString();
 
 
 }
 
 
+};
+
+
+}
 
 
 
@@ -335,13 +274,9 @@ chemin.appendChild(fleur);
 
 
 
-
 dateActuelle.setDate(
-
 dateActuelle.getDate()+1
-
 );
-
 
 
 }
@@ -349,7 +284,6 @@ dateActuelle.getDate()+1
 
 
 </script>
-
 
 
 </body>
