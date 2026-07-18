@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Le Jardin de Sowji</title>
@@ -39,10 +40,12 @@ Chaque jour, le jardin révèle un nouveau souvenir.
 </p>
 
 
+
 <div class="chemin" id="chemin"></div>
 
 
 </div>
+
 
 
 
@@ -52,38 +55,69 @@ Chaque jour, le jardin révèle un nouveau souvenir.
 <script>
 
 
-const chemin = document.getElementById("chemin");
+const chemin =
+document.getElementById("chemin");
 
 
-const debut = new Date("2026-07-21");
 
-const mariage = new Date("2026-08-21");
-
-const fin = new Date("2026-08-30");
+const debut =
+new Date("2026-07-21");
 
 
-const maintenant = new Date();
+const mariage =
+new Date("2026-08-21");
+
+
+const fin =
+new Date("2026-08-30");
+
+
+
+const maintenant =
+new Date();
+
 
 
 maintenant.setHours(0,0,0,0);
+
 mariage.setHours(0,0,0,0);
+
 fin.setHours(0,0,0,0);
 
 
 
-// ======================
+
+
+// ==========================
+// MODE TEST
+// ==========================
+
+// TRUE = toutes les fleurs ouvertes
+// FALSE = fonctionnement normal
+
+const modeTest = true;
+
+
+
+
+
+// ==========================
 // COMPTEUR
-// ======================
+// ==========================
 
 
 let compteurTexte="";
+
 let dateCible;
+
 
 
 
 if(maintenant < mariage){
 
+
 dateCible=mariage;
+
 
 compteurTexte=
 "Encore {jours} jours avant le grand jour 💍";
@@ -93,18 +127,22 @@ compteurTexte=
 
 else if(maintenant < fin){
 
+
 dateCible=fin;
 
+
 compteurTexte=
-"💍🥂Encore {jours} jours de festivité 🥂💍";
+"Encore {jours} jours de festivité 👑";
 
 
 }
 
 else{
 
+
 compteurTexte=
-"Maintenant commence votre FOREVER 💋";
+"Maintenant commence votre FOREVER ❤️";
+
 
 }
 
@@ -118,9 +156,11 @@ if(dateCible){
 let jours=Math.ceil(
 
 (dateCible-maintenant)
+
 /(1000*60*60*24)
 
 );
+
 
 
 compteurTexte=
@@ -138,7 +178,9 @@ jours
 
 
 
+
 document.getElementById("compteur").innerHTML=
+
 compteurTexte;
 
 
@@ -146,12 +188,15 @@ compteurTexte;
 
 
 
-// ======================
-// DATE
-// ======================
+
+
+// ==========================
+// AFFICHAGE DATE
+// ==========================
 
 
 function afficherDate(date){
+
 
 return date.toLocaleDateString(
 
@@ -173,12 +218,16 @@ month:"long"
 
 
 
-// ======================
+
+// ==========================
 // CREATION DES FLEURS
-// ======================
+// ==========================
 
 
-let dateActuelle=new Date(debut);
+
+let dateActuelle =
+new Date(debut);
+
 
 
 
@@ -186,13 +235,18 @@ while(dateActuelle <= fin){
 
 
 
-let fleur=document.createElement("div");
+let fleur =
+document.createElement("div");
 
 
-let dateFleur=new Date(dateActuelle);
+
+let dateFleur =
+new Date(dateActuelle);
+
 
 
 dateFleur.setHours(0,0,0,0);
+
 
 
 
@@ -206,7 +260,10 @@ let ouvrable=false;
 
 
 
-if(dateFleur <= maintenant){
+// MODE NORMAL + MODE TEST
+
+
+if(dateFleur <= maintenant || modeTest){
 
 
 symbole="🪷";
@@ -233,19 +290,16 @@ symbole="🌹";
 classe="finale";
 
 
-if(dateFleur <= maintenant){
+if(dateFleur <= maintenant || modeTest){
+
 
 ouvrable=true;
 
-document.body.classList.add("grand-jour");
 
 }
 
 
 }
-
-
-
 
 
 
@@ -272,92 +326,10 @@ ${afficherDate(dateFleur)}
 </div>
 
 `;
-
-
-
-
-
-
-
 if(ouvrable){
 
 
-
 fleur.onclick=function(){
-
-
-
-// DERNIERE ROSE
-
-
-if(dateFleur.getTime() === fin.getTime()){
-
-
-
-let parchemin=document.createElement("div");
-
-
-
-parchemin.className="parchemin-final";
-
-
-
-parchemin.innerHTML=
-
-`
-
-<div class="couronne-finale">
-
-👑
-
-</div>
-
-
-<h2>
-
-Ma chère Sowji
-
-</h2>
-
-
-<p>
-
-Toutes les fleurs de ce jardin ont grandi
-jour après jour.
-
-<br><br>
-
-Chaque lettre était une petite partie de mon cœur.
-
-<br><br>
-
-Aujourd'hui, la dernière fleur s'ouvre...
-
-<br><br>
-
-Mais ce n'est pas la fin.
-
-<br><br>
-
-C'est le début de notre FOREVER ❤️
-
-<br><br>
-
-🌹
-
-</p>
-
-`;
-
-
-
-document.body.appendChild(parchemin);
-
-
-
-}
-
-else{
 
 
 
@@ -371,16 +343,10 @@ dateFleur.toISOString();
 
 
 
-}
-
-
-
 };
 
 
-
 }
-
 
 
 
@@ -397,6 +363,7 @@ dateActuelle.getDate()+1
 );
 
 
+
 }
 
 
@@ -406,13 +373,15 @@ dateActuelle.getDate()+1
 
 
 
-
-// ======================
+// ==========================
 // SECRET DU 29 AOÛT
-// ======================
+// ==========================
 
 
-let secret=new Date("2026-08-29");
+let secret =
+
+new Date("2026-08-29");
+
 
 
 secret.setHours(0,0,0,0);
@@ -425,7 +394,9 @@ if(maintenant.getTime() === secret.getTime()){
 
 
 
-let message=document.createElement("div");
+let message =
+
+document.createElement("div");
 
 
 
@@ -445,11 +416,11 @@ Le jardin semble arriver au bout du chemin...
 
 <br><br>
 
-Mais certains palais gardent encore un dernier secret.
+Mais un dernier secret attend demain.
 
 <br><br>
 
-Demain, une nouvelle histoire commencera.
+Une dernière fleur reste à découvrir.
 
 `;
 
@@ -470,10 +441,10 @@ document.querySelector(".jardin")
 
 
 
+// ==========================
+// PLUIE D'ÉTOILES
+// ==========================
 
-// ======================
-// PLUIE D'ETOILES
-// ======================
 
 
 function creerEtoile(){
@@ -482,6 +453,7 @@ function creerEtoile(){
 
 const etoiles=[
 
+
 "✨",
 
 "⭐",
@@ -489,6 +461,7 @@ const etoiles=[
 "💛",
 
 "❤️"
+
 
 ];
 
@@ -540,7 +513,9 @@ document.body.appendChild(p);
 
 setTimeout(()=>{
 
+
 p.remove();
+
 
 },12000);
 
@@ -554,9 +529,11 @@ setInterval(creerEtoile,350);
 
 
 
+
 </script>
 
 
 </body>
 
 </html>
+
