@@ -34,9 +34,10 @@
 
 <p id="texteLettre">
 
-La lettre arrive...
+La lettre voyage encore...
 
 </p>
+
 
 
 <div class="media">
@@ -70,7 +71,10 @@ Retour au jardin
 
 
 
+<!-- Coffre des lettres préparées -->
+
 <script src="lettres.js"></script>
+
 
 
 <script>
@@ -122,13 +126,7 @@ year:"numeric"
 
 
 
-const lettre =
-
-lettres[cleDate];
-
-
-
-const texte =
+const texteLettre =
 
 document.getElementById("texteLettre");
 
@@ -154,11 +152,92 @@ document.getElementById("musique");
 
 
 
+/*
+Recherche d'abord une lettre
+écrite depuis l'atelier,
+sinon utilise lettres.js
+*/
+
+
+
+let lettre = null;
+
+
+
+let lettreSauvegardee =
+
+localStorage.getItem(
+
+"sowji-" + cleDate
+
+);
+
+
+
+
+
+if(lettreSauvegardee){
+
+
+let sauvegarde =
+
+JSON.parse(
+
+lettreSauvegardee
+
+);
+
+
+
+lettre = {
+
+
+texte:
+
+sauvegarde.message,
+
+
+photo:
+
+sauvegarde.photo,
+
+
+video:"",
+
+
+musique:
+
+sauvegarde.musique
+
+
+};
+
+
+
+}
+
+else if(typeof lettres !== "undefined"){
+
+
+
+lettre =
+
+lettres[cleDate];
+
+
+}
+
+
+
+
+
+
+
 if(lettre){
 
 
 
-texte.innerHTML =
+texteLettre.innerHTML =
 
 lettre.texte;
 
@@ -166,42 +245,58 @@ lettre.texte;
 
 if(lettre.photo){
 
+
 photo.src = lettre.photo;
+
 
 }
 
 else{
 
+
 photo.style.display="none";
 
+
 }
+
+
 
 
 
 if(lettre.video){
 
+
 video.src = lettre.video;
+
 
 }
 
 else{
 
+
 video.style.display="none";
 
+
 }
+
+
 
 
 
 if(lettre.musique){
 
+
 musique.src = lettre.musique;
+
 
 }
 
 else{
+
 
 musique.style.display="none";
 
+
 }
 
 
@@ -211,7 +306,8 @@ musique.style.display="none";
 else{
 
 
-texte.innerHTML =
+
+texteLettre.innerHTML =
 
 `
 
@@ -219,7 +315,7 @@ Cette lettre n'est pas encore arrivée...
 
 <br><br>
 
-Elle voyage encore jusqu'à son jour.
+Elle poursuit encore son voyage jusqu'à toi.
 
 `;
 
