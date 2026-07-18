@@ -74,22 +74,18 @@ La lettre voyage encore...
 <script>
 
 
-const parametres =
-new URLSearchParams(
-window.location.search
-);
-
-
-
 const date =
-new Date(
-parametres.get("date")
+new Date(cleDate + "T12:00:00");
+
+dateLettre.innerHTML =
+date.toLocaleDateString(
+"fr-FR",
+{
+day:"numeric",
+month:"long",
+year:"numeric"
+}
 );
-
-
-
-const cleDate =
-date.toISOString().split("T")[0];
 
 
 
