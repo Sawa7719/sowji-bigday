@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Le Palais de Sowji</title>
 
@@ -11,60 +12,46 @@
 
 </head>
 
-
 <body>
 
-
 <div class="coffre">
-
 
 <div class="couvercle">
 👑
 </div>
 
-
-<h1>
-Le Palais de Sowji
-</h1>
-
+<h1>Le Palais de Sowji</h1>
 
 <p>
-Un jardin secret rempli de souvenirs t'attend...
+Bienvenue dans un jardin secret où chaque fleur cache une pensée,
+un souvenir et une émotion.
+<br><br>
+Chaque jour, une nouvelle fleur s'ouvrira jusqu'au plus beau des jours.
 </p>
 
-
-<button onclick="ouvrir()">
-
+<button onclick="ouvrirPalais()">
 🔐 Ouvrir le palais
-
 </button>
-
 
 </div>
 
-
-
 <script>
 
+function ouvrirPalais(){
 
-function ouvrir(){
+const coffre = document.querySelector(".coffre");
 
-document.querySelector(".coffre")
-.classList.add("ouvert");
+coffre.classList.add("ouvert");
 
+setTimeout(function(){
 
-setTimeout(()=>{
-
-window.location.href="jardin.html";
+window.location.href = "jardin.html";
 
 },1500);
 
-
 }
 
-
 </script>
-
 
 </body>
 
