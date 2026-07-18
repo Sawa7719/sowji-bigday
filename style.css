@@ -712,3 +712,132 @@ opacity:1;
 
 
 }
+/* =================================
+   JARDIN QUI SERPENTE
+================================= */
+
+
+.chemin {
+
+position:relative;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:45px;
+
+}
+
+
+
+.fleur-jardin {
+
+
+animation:
+
+apparition 1s ease;
+
+
+}
+
+
+
+.fleur-jardin:nth-child(odd) {
+
+
+transform:
+
+translateX(-70px);
+
+
+}
+
+
+
+.fleur-jardin:nth-child(even) {
+
+
+transform:
+
+translateX(70px);
+
+
+}
+
+
+
+.fleur-jardin:nth-child(odd):hover {
+
+
+transform:
+
+translateX(-70px)
+translateY(-10px)
+scale(1.08);
+
+
+}
+
+
+
+.fleur-jardin:nth-child(even):hover {
+
+
+transform:
+
+translateX(70px)
+translateY(-10px)
+scale(1.08);
+
+
+}
+
+
+
+
+.chemin::before {
+
+
+content:"";
+
+
+position:absolute;
+
+
+width:10px;
+
+
+height:100%;
+
+
+background:
+
+linear-gradient(
+
+#d4af37,
+
+#8b5a24
+
+);
+
+
+border-radius:20px;
+
+
+z-index:0;
+
+
+}
+
+
+
+.fleur-jardin {
+
+
+z-index:1;
+
+
+}
