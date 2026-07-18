@@ -237,3 +237,87 @@ input {
     opacity:0.35;
 
 }
+/* ===== PARCHEMIN ===== */
+
+
+.parchemin {
+
+max-width:600px;
+
+margin:40px auto;
+
+padding:40px 30px;
+
+background:
+
+linear-gradient(
+#f4e6c5,
+#e8d2a3
+);
+
+color:#4a351c;
+
+border-radius:20px;
+
+box-shadow:
+
+0 0 40px rgba(212,175,55,0.5);
+
+animation:ouvrirParchemin 1.5s ease;
+
+}
+
+
+
+.contenu-lettre {
+
+font-size:20px;
+
+line-height:1.8;
+
+font-style:italic;
+
+}
+
+
+
+@keyframes ouvrirParchemin {
+
+from {
+
+transform:scaleY(0);
+
+opacity:0;
+
+}
+
+to {
+
+transform:scaleY(1);
+
+opacity:1;
+
+}
+
+}
+
+
+
+.media img,
+.media video {
+
+max-width:100%;
+
+border-radius:15px;
+
+margin-top:20px;
+
+}
+
+
+
+audio {
+
+margin-top:20px;
+
+}
