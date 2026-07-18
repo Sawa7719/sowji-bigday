@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ton jardin</title>
+<title>Le jardin</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,8 +21,7 @@
 <div class="cadre-porte">
 
 <h2>
-Pour t’accompagner<br>
-jusqu’au plus beau des jours…
+🌹 Le jardin du palais
 </h2>
 
 </div>
@@ -40,14 +39,9 @@ jusqu’au plus beau des jours…
 
 
 <p class="phrase">
-
-Un voyage écrit avec le cœur,<br>
-jusqu'au plus beau des jours.
-
+Chaque jour une fleur s'ouvre jusqu'au plus beau des jours.
 <br><br>
-
 <span id="compteur"></span>
-
 </p>
 
 
@@ -68,41 +62,46 @@ const chemin =
 document.getElementById("chemin");
 
 
+
 const debut =
 new Date("2026-07-21");
-
 
 const fin =
 new Date("2026-08-30");
 
 
-const aujourdHui =
+
+const maintenant =
 new Date();
+
+maintenant.setHours(0,0,0,0);
 
 
 
 const grandJour =
 new Date("2026-08-30");
 
+grandJour.setHours(0,0,0,0);
 
 
-let difference =
-grandJour - aujourdHui;
 
-
-let jours =
-Math.max(
-0,
+let reste =
 Math.ceil(
-difference / (1000*60*60*24)
-)
+(grandJour-maintenant)
+/(1000*60*60*24)
 );
 
 
 
 document.getElementById("compteur").innerHTML =
 
-"Encore " + jours + " jours avant le plus beau des jours…";
+reste > 0 ?
+
+"Encore "+reste+" jours avant le grand jour 🌹"
+
+:
+
+"Le grand jour est arrivé 🌹";
 
 
 
@@ -132,28 +131,10 @@ new Date(debut);
 while(dateActuelle <= fin){
 
 
-let cleDate =
-dateActuelle.toISOString().split("T")[0];
-
-
 
 let fleur =
 document.createElement("div");
 
-
-
-let classe =
-"lune";
-
-
-let symbole =
-"🌙";
-
-
-let aujourdHuiSimple =
-new Date();
-
-aujourdHuiSimple.setHours(0,0,0,0);
 
 
 let dateFleur =
@@ -163,71 +144,55 @@ dateFleur.setHours(0,0,0,0);
 
 
 
+let symbole = "🔒";
+
+let classe = "";
+
 let ouvrable = false;
 
 
 
-if(dateFleur <= aujourdHuiSimple){
+// Fleur disponible seulement si la date est arrivée
 
-ouvrable = true;
+if(dateFleur <= maintenant){
+
+
+symbole="🌸";
+
+classe="ouverte";
+
+ouvrable=true;
+
 
 }
 
 
 
-// DERNIERE FLEUR
+// Dernière fleur
 
-if(cleDate === "2026-08-30"){
+if(
+
+dateFleur.getTime()
+===
+
+fin.getTime()
+
+){
 
 
 symbole="🌹";
 
 classe="finale";
 
-ouvrable=true;
 
-
-}
-
-
-// LETTRES EXISTANTES
-
-else if(
-
-localStorage.getItem(
-"sowji-"+cleDate
-)
-
-){
-
-
-symbole="🪷";
-
-classe="lotus";
+if(dateFleur <= maintenant){
 
 ouvrable=true;
 
+}
 
 }
 
-
-// JOUR ACTUEL
-
-else if(
-
-cleDate === aujourdHui.toISOString().split("T")[0]
-
-){
-
-
-symbole="💎";
-
-classe="bijou";
-
-ouvrable=true;
-
-
-}
 
 
 
@@ -249,11 +214,12 @@ ${symbole}
 
 <div class="date-fleur">
 
-${afficherDate(dateActuelle)}
+${afficherDate(dateFleur)}
 
 </div>
 
 `;
+
 
 
 
@@ -264,7 +230,7 @@ if(ouvrable){
 fleur.onclick=function(){
 
 
-if(cleDate==="2026-08-30"){
+if(dateFleur.getTime()===fin.getTime()){
 
 
 window.location.href="grandjour.html";
@@ -277,7 +243,7 @@ else{
 
 window.location.href=
 
-"lettre.html?date="+dateActuelle.toISOString();
+"lettre.html?date="+dateFleur.toISOString();
 
 
 }
@@ -290,12 +256,16 @@ window.location.href=
 
 
 
+
+
 chemin.appendChild(fleur);
 
 
 
 dateActuelle.setDate(
+
 dateActuelle.getDate()+1
+
 );
 
 
