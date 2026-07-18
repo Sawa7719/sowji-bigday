@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Les souvenirs</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="parchemin">
+
+
+<h1>
+🌸 Les souvenirs du jardin
+</h1>
+
+
+
+<div id="listeSouvenirs">
+
+</div>
+
+
+
+<br>
+
+
+<button onclick="retourJardin()">
+
+Retour au jardin
+
+</button>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+
+let zone =
+
+document.getElementById("listeSouvenirs");
+
+
+
+let trouve = false;
+
+
+
+for(let cle in localStorage){
+
+
+
+if(cle.startsWith("sowji-")){
+
+
+
+let lettre =
+
+JSON.parse(
+
+localStorage.getItem(cle)
+
+);
+
+
+
+if(lettre.message){
+
+
+
+trouve=true;
+
+
+
+zone.innerHTML +=
+
+
+`
+
+<div class="souvenir">
+
+
+<h2>
+
+${cle.replace("sowji-","")}
+
+</h2>
+
+
+<p>
+
+${lettre.message}
+
+</p>
+
+
+</div>
+
+`;
+
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+if(!trouve){
+
+
+zone.innerHTML =
+
+`
+
+<p>
+
+Aucun souvenir n'a encore été déposé.
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+
+
+function retourJardin(){
+
+
+window.location.href="jardin.html";
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
