@@ -3,73 +3,98 @@
 SOWJI
 Le coffre des lettres
 =================================
-*
+*/
 
 
 const lettres = {
 
 
+
 "2026-07-21": {
 
+
 texte: `
+
 Ma chère Sowji,
 
-Le voyage commence aujourd'hui.
+<br><br>
 
-Une première porte s'ouvre,
-et derrière elle se cache un chemin rempli
-de petits morceaux de bonheur.
+Aujourd'hui commence un voyage écrit avec le cœur.
+
+Chaque jour, une petite lettre viendra t'accompagner
+jusqu'au plus beau des jours.
+
+<br><br>
 
 Avec toute mon affection.
+
 `,
 
-photo: "",
 
-video: "",
+photo:"",
 
-musique: ""
+video:"",
+
+musique:""
+
 
 },
+
 
 
 
 "2026-07-22": {
 
-texte: `
-Une nouvelle journée apparaît.
 
-Une nouvelle lettre,
-un nouveau sourire,
-un nouveau souvenir à découvrir.
+texte:`
+
+Une nouvelle journée s'ouvre.
+
+<br><br>
+
+Une nouvelle page de notre histoire
+vient doucement se déposer dans ce jardin.
+
 `,
 
-photo: "",
 
-video: "",
+photo:"",
 
-musique: ""
+video:"",
+
+musique:""
+
 
 },
 
 
 
+
+
 "2026-07-23": {
 
-texte: `
 
-Aujourd'hui encore,
-une petite partie du chemin
-vient jusqu'à toi.
+texte:`
+
+Aujourd'hui une nouvelle lettre arrive jusqu'à toi.
+
+<br><br>
+
+Garde précieusement ces petits instants,
+ils construisent le chemin vers notre grand jour.
 
 `,
 
-photo: "",
 
-video: "",
+photo:"",
 
-musique: ""
+video:"",
+
+musique:""
+
 
 }
+
 
 
 };
