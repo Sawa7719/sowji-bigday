@@ -150,8 +150,28 @@ let symbole =
 "🌙";
 
 
-let ouvrable =
-false;
+let aujourdHuiSimple =
+new Date();
+
+aujourdHuiSimple.setHours(0,0,0,0);
+
+
+let dateFleur =
+new Date(dateActuelle);
+
+dateFleur.setHours(0,0,0,0);
+
+
+
+let ouvrable = false;
+
+
+
+if(dateFleur <= aujourdHuiSimple){
+
+ouvrable = true;
+
+}
 
 
 
