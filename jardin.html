@@ -128,30 +128,105 @@ sur le chemin vers ton grand jour.
 
 
 
-<div class="chemin">
-
-
-<div class="fleur">
-🌙
-</div>
-
-
-<div class="fleur">
-💎
-</div>
-
-
-<div class="fleur">
-🪷
-</div>
-
+<div class="chemin" id="chemin">
 
 </div>
 
 
 </div>
 
+<script>
 
+let chemin = document.getElementById("chemin");
+
+
+let debut = new Date("July 21, 2026");
+let fin = new Date("August 30, 2026");
+
+
+// Mode test pour vous
+// Changez la date ici pour tester
+let aujourdHui = new Date("July 21, 2026");
+
+
+
+function afficherDate(date){
+
+return date.toLocaleDateString(
+"fr-FR",
+{
+day:"numeric",
+month:"long"
+}
+);
+
+}
+
+
+
+let dateActuelle = new Date(debut);
+
+
+
+while(dateActuelle <= fin){
+
+
+let fleur = document.createElement("div");
+
+fleur.className="fleur";
+
+
+let symbole;
+
+
+if(dateActuelle < aujourdHui){
+
+symbole="🪷";
+
+}
+
+else if(
+dateActuelle.getTime() === aujourdHui.getTime()
+){
+
+symbole="💎";
+
+}
+
+else{
+
+symbole="🌙";
+
+}
+
+
+
+fleur.innerHTML = `
+
+${symbole}
+
+<br>
+
+<small>
+${afficherDate(dateActuelle)}
+</small>
+
+`;
+
+
+
+chemin.appendChild(fleur);
+
+
+
+dateActuelle.setDate(
+dateActuelle.getDate()+1
+);
+
+
+}
+
+
+</script>
 </body>
-
 </html>
