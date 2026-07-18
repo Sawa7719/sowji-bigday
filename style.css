@@ -1,48 +1,51 @@
-/* ================================
-   SOWJI
-   Le chemin vers ton grand jour
-   ================================= */
+/*
+=================================
+SOWJI
+Style du palais
+=================================
+*/
 
-
-/* ===== BASE DU PALAIS ===== */
 
 * {
-    box-sizing: border-box;
+
+box-sizing:border-box;
+
 }
+
 
 
 body {
 
-    margin: 0;
+margin:0;
 
-    min-height: 100vh;
+min-height:100vh;
 
-    font-family: Georgia, "Times New Roman", serif;
+font-family:Georgia, "Times New Roman", serif;
 
-    color: #f5ead0;
+color:#f5ead0;
 
-    text-align: center;
+text-align:center;
 
-    background:
-    radial-gradient(circle at top,
-    #234b36,
-    #07100b 70%);
+background:
+
+radial-gradient(circle at top,#234b36,#07100b);
 
 }
 
 
-/* ===== PAGE D'ACCUEIL ===== */
+
+/* =========================
+   PORTE DU PALAIS
+========================= */
 
 
 .accueil {
 
-    display: flex;
+display:flex;
 
-    justify-content: center;
+justify-content:center;
 
-    align-items: center;
-
-    overflow: hidden;
+align-items:center;
 
 }
 
@@ -50,31 +53,27 @@ body {
 
 .palais {
 
-    width: 90%;
+width:90%;
 
-    max-width: 500px;
+max-width:600px;
 
-    padding: 40px 20px;
+padding:50px 20px;
 
 }
 
 
 
-/* ===== TITRES ===== */
-
-
 h1 {
 
-    margin: 0;
+font-size:55px;
 
-    font-size: 55px;
+color:#d4af37;
 
-    color: #d4af37;
+letter-spacing:3px;
 
-    letter-spacing: 3px;
+text-shadow:
 
-    text-shadow:
-    0 0 15px rgba(212,175,55,0.5);
+0 0 20px rgba(212,175,55,0.5);
 
 }
 
@@ -82,59 +81,48 @@ h1 {
 
 h2 {
 
-    color: #f5ead0;
-
-    font-weight: normal;
-
-    margin-top: 10px;
+font-weight:normal;
 
 }
 
-
-
-/* ===== PHRASE D'INTRODUCTION ===== */
 
 
 .phrase {
 
-    margin-top: 40px;
+font-size:22px;
 
-    font-size: 22px;
+font-style:italic;
 
-    line-height: 1.7;
+line-height:1.7;
 
-    font-style: italic;
+margin:40px 0;
 
 }
 
 
 
-/* ===== BOUTONS ===== */
+/* Boutons */
 
 
 button {
 
-    margin-top: 25px;
+padding:15px 35px;
 
-    padding: 15px 35px;
+border-radius:40px;
 
-    border-radius: 40px;
+border:2px solid #d4af37;
 
-    border: 1px solid #d4af37;
+background:transparent;
 
-    background:
+color:#d4af37;
 
-    rgba(0,0,0,0.25);
+font-family:Georgia,serif;
 
-    color: #d4af37;
+font-size:18px;
 
-    font-size: 18px;
+cursor:pointer;
 
-    font-family: Georgia, serif;
-
-    cursor: pointer;
-
-    transition: 0.4s;
+transition:.4s;
 
 }
 
@@ -142,429 +130,19 @@ button {
 
 button:hover {
 
-    transform: scale(1.05);
-
-    box-shadow:
-    0 0 25px rgba(212,175,55,0.6);
-
-}
-
-
-
-/* ===== SCEAU ===== */
-
-
-.sceau {
-
-    margin: 25px auto;
-
-    width: 90px;
-
-    height: 90px;
-
-    border-radius: 50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:40px;
-
-    color:#d4af37;
-
-    border:2px solid #d4af37;
-
-    background:#101810;
-
-}
-
-
-
-input {
-
-    width:80%;
-
-    max-width:300px;
-
-    padding:15px;
-
-    border-radius:30px;
-
-    border:none;
-
-    text-align:center;
-
-    font-size:18px;
-
-    background:#f5ead0;
-
-}
-
-
-
-/* ===== ELEMENTS CACHÉS ===== */
-
-
-.cache {
-
-    display:none;
-
-}
-
-
-
-/* ===== PETITES LUEURS ===== */
-
-
-.etoiles {
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-
-    radial-gradient(circle,
-    rgba(212,175,55,0.7) 1px,
-    transparent 2px);
-
-    background-size:80px 80px;
-
-    opacity:0.35;
-
-}
-/* ===== PARCHEMIN ===== */
-
-
-.parchemin {
-
-max-width:600px;
-
-margin:40px auto;
-
-padding:40px 30px;
-
-background:
-
-linear-gradient(
-#f4e6c5,
-#e8d2a3
-);
-
-color:#4a351c;
-
-border-radius:20px;
+transform:scale(1.05);
 
 box-shadow:
 
-0 0 40px rgba(212,175,55,0.5);
-
-animation:ouvrirParchemin 1.5s ease;
+0 0 30px rgba(212,175,55,.6);
 
 }
 
 
 
-.contenu-lettre {
-
-font-size:20px;
-
-line-height:1.8;
-
-font-style:italic;
-
-}
-
-
-
-@keyframes ouvrirParchemin {
-
-from {
-
-transform:scaleY(0);
-
-opacity:0;
-
-}
-
-to {
-
-transform:scaleY(1);
-
-opacity:1;
-
-}
-
-}
-
-
-
-.media img,
-.media video {
-
-max-width:100%;
-
-border-radius:15px;
-
-margin-top:20px;
-
-}
-
-
-
-audio {
-margin-top:20px;
-
-}
-/* =================================
-   PARCHEMIN ROYAL
-   ================================= */
-
-
-body:has(.parchemin) {
-
-    background:
-    radial-gradient(circle at top,
-    #3a2a17,
-    #090704 75%);
-
-}
-
-
-
-/* Conteneur du parchemin */
-
-.parchemin {
-
-    position:relative;
-
-    max-width:650px;
-
-    margin:50px auto;
-
-    padding:55px 35px;
-
-    background:
-
-    linear-gradient(
-    90deg,
-    #d8bc83,
-    #f3dfae,
-    #d8bc83
-    );
-
-
-    color:#4b3218;
-
-    border-radius:10px;
-
-
-    box-shadow:
-
-    0 0 40px rgba(212,175,55,0.6),
-
-    inset 0 0 30px rgba(80,45,10,0.3);
-
-
-    animation:
-
-    ouvrirRouleau 1.5s ease;
-
-}
-
-
-
-/* Rouleaux haut et bas */
-
-
-.parchemin::before,
-
-.parchemin::after {
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    left:-15px;
-
-
-    right:-15px;
-
-
-    height:35px;
-
-
-    background:
-
-    linear-gradient(
-    #7b4f22,
-    #c28a45,
-    #7b4f22
-    );
-
-
-    border-radius:20px;
-
-
-}
-
-
-
-.parchemin::before {
-
-    top:-15px;
-
-}
-
-
-
-.parchemin::after {
-
-    bottom:-15px;
-
-}
-
-
-
-/* Titre */
-
-
-.parchemin h1 {
-
-
-    color:#7a4b1c;
-
-
-    font-size:38px;
-
-
-    text-shadow:
-
-    0 1px 1px #fff;
-
-}
-
-
-
-/* Texte de la lettre */
-
-
-.contenu-lettre {
-
-
-    margin-top:35px;
-
-
-    font-size:21px;
-
-
-    line-height:1.8;
-
-
-    font-style:italic;
-
-
-}
-
-
-
-/* Date */
-
-
-#dateLettre {
-
-
-    color:#8b5a24;
-
-
-    font-size:18px;
-
-
-}
-
-
-
-/* Médias */
-
-
-.media img,
-
-.media video {
-
-
-    width:90%;
-
-
-    margin-top:30px;
-
-
-    border-radius:15px;
-
-
-    box-shadow:
-
-    0 0 20px rgba(0,0,0,0.25);
-
-
-}
-
-
-
-.media audio {
-
-
-    margin-top:25px;
-
-
-}
-
-
-
-/* Animation ouverture */
-
-
-@keyframes ouvrirRouleau {
-
-
-    from {
-
-
-        transform:
-
-        scaleY(0);
-
-
-        opacity:0;
-
-
-    }
-
-
-    to {
-
-
-        transform:
-
-        scaleY(1);
-
-
-        opacity:1;
-
-
-    }
-
-
-}
-/* =================================
-   JARDIN SECRET
-   ================================= */
+/* =========================
+   JARDIN
+========================= */
 
 
 .jardin {
@@ -573,41 +151,23 @@ padding:40px 20px;
 
 min-height:100vh;
 
-background:
-
-radial-gradient(circle at center,
-
-#234b36,
-
-#07100b);
-
 }
 
 
 
-.allee {
-
-
-position:relative;
-
+.chemin {
 
 max-width:700px;
 
-
 margin:auto;
-
 
 display:flex;
 
-
 flex-wrap:wrap;
-
 
 justify-content:center;
 
-
 gap:35px;
-
 
 }
 
@@ -615,15 +175,11 @@ gap:35px;
 
 .fleur-jardin {
 
-
 width:120px;
-
 
 height:120px;
 
-
 border-radius:50%;
-
 
 background:
 
@@ -640,29 +196,21 @@ linear-gradient(
 
 border:3px solid #d4af37;
 
-
 display:flex;
-
 
 flex-direction:column;
 
+align-items:center;
 
 justify-content:center;
 
-
-align-items:center;
-
-
 cursor:pointer;
 
+transition:.4s;
 
 box-shadow:
 
-0 0 25px rgba(212,175,55,0.4);
-
-
-transition:0.4s;
-
+0 0 25px rgba(212,175,55,.4);
 
 }
 
@@ -670,16 +218,7 @@ transition:0.4s;
 
 .fleur-jardin:hover {
 
-
-transform:
-
-translateY(-10px);
-
-
-box-shadow:
-
-0 0 40px rgba(212,175,55,0.8);
-
+transform:translateY(-10px);
 
 }
 
@@ -687,12 +226,9 @@ box-shadow:
 
 .sceau-fleur {
 
-
 font-size:45px;
 
-
-color:#6b451d;
-
+color:#70451d;
 
 }
 
@@ -700,14 +236,144 @@ color:#6b451d;
 
 .date-fleur {
 
-
 font-size:13px;
 
-
-margin-top:8px;
-
-
 color:#3b2814;
+
+}
+
+
+
+/* =========================
+   PARCHEMIN
+========================= */
+
+
+.parchemin {
+
+max-width:650px;
+
+margin:50px auto;
+
+padding:55px 35px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#d8bc83,
+
+#f3dfae,
+
+#d8bc83
+
+);
+
+
+color:#4b3218;
+
+border-radius:10px;
+
+box-shadow:
+
+0 0 40px rgba(212,175,55,.6);
+
+animation:
+
+ouvrirRouleau 1.5s ease;
+
+}
+
+
+
+.parchemin::before,
+
+.parchemin::after {
+
+
+content:"";
+
+display:block;
+
+height:30px;
+
+background:
+
+linear-gradient(
+
+#7b4f22,
+
+#c28a45,
+
+#7b4f22
+
+);
+
+border-radius:20px;
+
+margin:-70px -45px 40px;
+
+}
+
+
+
+.parchemin::after {
+
+margin:
+
+40px -45px -70px;
+
+}
+
+
+
+.contenu-lettre {
+
+font-size:21px;
+
+line-height:1.8;
+
+font-style:italic;
+
+}
+
+
+
+.media img,
+
+.media video {
+
+max-width:90%;
+
+border-radius:15px;
+
+margin-top:25px;
+
+}
+
+
+
+@keyframes ouvrirRouleau {
+
+
+from {
+
+transform:scaleY(0);
+
+opacity:0;
+
+}
+
+
+to {
+
+transform:scaleY(1);
+
+opacity:1;
+
+}
 
 
 }
