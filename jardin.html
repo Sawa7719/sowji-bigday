@@ -11,17 +11,15 @@
 
 <style>
 
+<style>
+
 body {
 
 margin:0;
 min-height:100vh;
 
 background:
-linear-gradient(
-to bottom,
-#07110c,
-#123524
-);
+radial-gradient(circle at top, #183b2a, #050907);
 
 font-family:Georgia, serif;
 
@@ -33,6 +31,143 @@ overflow-x:hidden;
 
 }
 
+
+.jardin {
+
+padding:40px 20px;
+
+position:relative;
+
+}
+
+
+
+h1 {
+
+font-size:42px;
+
+color:#d4af37;
+
+text-shadow:0 0 15px rgba(212,175,55,0.5);
+
+}
+
+
+
+.intro {
+
+font-size:20px;
+
+line-height:1.6;
+
+max-width:420px;
+
+margin:20px auto 50px;
+
+}
+
+
+
+.chemin {
+
+position:relative;
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:35px;
+
+max-width:500px;
+
+margin:auto;
+
+}
+
+
+
+.fleur {
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+background:#f4ead3;
+
+border:3px solid #d4af37;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:38px;
+
+color:#333;
+
+box-shadow:
+
+0 0 20px rgba(212,175,55,0.4);
+
+transition:0.5s;
+
+animation:pousser 1s ease;
+
+}
+
+
+
+.fleur:hover {
+
+transform:translateY(-8px) scale(1.05);
+
+box-shadow:
+
+0 0 35px rgba(212,175,55,0.8);
+
+}
+
+
+
+.fleur small {
+
+font-size:13px;
+
+margin-top:5px;
+
+}
+
+
+
+@keyframes pousser {
+
+from {
+
+opacity:0;
+
+transform:scale(0);
+
+}
+
+to {
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+</style>
 
 .jardin {
 
