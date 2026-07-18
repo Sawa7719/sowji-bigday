@@ -758,3 +758,155 @@ text-shadow:
 0 0 15px rgba(212,175,55,.6);
 
 }
+/* =================================
+   PORTE DOREE ENCHANTEE
+================================= */
+
+
+.porte-jardin {
+
+animation:
+
+apparitionPorte 2s ease;
+
+}
+
+
+
+.cadre-porte {
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.cadre-porte::before {
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:0;
+
+
+left:-100%;
+
+
+width:60%;
+
+
+height:100%;
+
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.35),
+
+transparent
+
+);
+
+
+animation:
+
+lumierePorte 4s infinite;
+
+
+}
+
+
+
+.cadre-porte h2 {
+
+
+position:relative;
+
+
+z-index:1;
+
+
+}
+
+
+
+
+@keyframes lumierePorte {
+
+
+0% {
+
+
+left:-100%;
+
+
+}
+
+
+
+50% {
+
+
+left:150%;
+
+
+}
+
+
+
+100% {
+
+
+left:150%;
+
+
+}
+
+
+}
+
+
+
+@keyframes apparitionPorte {
+
+
+from {
+
+
+opacity:0;
+
+
+transform:translateY(-40px);
+
+
+}
+
+
+
+to {
+
+
+opacity:1;
+
+
+transform:translateY(0);
+
+
+}
+
+
+}
