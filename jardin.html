@@ -20,7 +20,7 @@
 
 
 <h1>
-✨Le Jardin de Sowji✨
+✨ Le Jardin de Sowji ✨
 </h1>
 
 
@@ -61,14 +61,12 @@ const debut =
 new Date("2026-07-21");
 
 
+const mariage =
+new Date("2026-08-21");
+
 
 const fin =
 new Date("2026-08-30");
-
-
-
-const mariage =
-new Date("2026-08-21");
 
 
 
@@ -78,8 +76,6 @@ new Date();
 
 maintenant.setHours(0,0,0,0);
 
-
-
 mariage.setHours(0,0,0,0);
 
 fin.setHours(0,0,0,0);
@@ -88,7 +84,9 @@ fin.setHours(0,0,0,0);
 
 
 
-// COMPTE A REBOURS INTELLIGENT
+// ======================
+// COMPTEUR
+// ======================
 
 
 let compteurTexte="";
@@ -103,7 +101,9 @@ if(maintenant < mariage){
 dateCible=mariage;
 
 
-compteurTexte="Encore {jours} jours avant le grand jour 💍";
+compteurTexte=
+
+"Encore {jours} jours avant le grand jour 💍";
 
 
 }
@@ -114,7 +114,9 @@ else if(maintenant < fin){
 dateCible=fin;
 
 
-compteurTexte="Encore {jours} jours de festivité 👑";
+compteurTexte=
+
+"💍Encore {jours} jours de festivité 🥂";
 
 
 }
@@ -122,7 +124,9 @@ compteurTexte="Encore {jours} jours de festivité 👑";
 else{
 
 
-compteurTexte="Maintenant a toi d'écrire ton FOREVER💋 ";
+compteurTexte=
+
+"Maintenant commence votre FOREVER 💋";
 
 
 }
@@ -173,6 +177,11 @@ compteurTexte;
 
 
 
+// ======================
+// DATES
+// ======================
+
+
 function afficherDate(date){
 
 
@@ -190,7 +199,6 @@ month:"long"
 
 );
 
-
 }
 
 
@@ -199,10 +207,15 @@ month:"long"
 
 
 
+
+
+// ======================
+// CREATION DES FLEURS
+// ======================
+
+
 let dateActuelle =
 new Date(debut);
-
-
 
 
 
@@ -247,6 +260,10 @@ ouvrable=true;
 
 
 
+
+
+
+// Dernière fleur
 
 
 if(dateFleur.getTime() === fin.getTime()){
@@ -301,7 +318,6 @@ ${afficherDate(dateFleur)}
 
 
 
-
 if(ouvrable){
 
 
@@ -322,6 +338,7 @@ dateFleur.toISOString();
 
 
 }
+
 
 
 
@@ -349,7 +366,9 @@ dateActuelle.getDate()+1
 
 
 
+// ======================
 // SECRET DU 29 AOÛT
+// ======================
 
 
 let secret =
@@ -383,11 +402,15 @@ message.innerHTML=
 
 <br><br>
 
-Le jardin semble arrivé au bout du chemin...
+Le jardin semble arriver au bout du chemin...
 
 <br><br>
 
-Mais un dernier secret attend demain.
+Mais certains palais gardent encore un dernier secret.
+
+<br><br>
+
+Demain, une nouvelle histoire commencera.
 
 `;
 
@@ -396,6 +419,7 @@ Mais un dernier secret attend demain.
 document.querySelector(".jardin")
 
 .appendChild(message);
+
 
 
 }
@@ -408,7 +432,9 @@ document.querySelector(".jardin")
 
 
 
-// PLUIE D'ÉTOILES
+// ======================
+// PLUIE D'ETOILES MAGIQUES
+// ======================
 
 
 function creerEtoile(){
@@ -432,6 +458,7 @@ const p=document.createElement("div");
 
 
 p.className="petale";
+
 
 
 p.innerHTML=
