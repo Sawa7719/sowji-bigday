@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 
 <meta charset="UTF-8">
@@ -33,16 +34,15 @@
 
 <p id="texteLettre">
 
-Cette lettre voyage encore...
+La lettre arrive...
 
 </p>
-
 
 
 <div class="media">
 
 
-<img id="photo" src="" alt="">
+<img id="photo" alt="">
 
 
 <video id="video" controls></video>
@@ -52,7 +52,6 @@ Cette lettre voyage encore...
 
 
 </div>
-
 
 
 </div>
@@ -66,20 +65,18 @@ Retour au jardin
 </button>
 
 
+
 </div>
 
 
 
-<!-- Le coffre des lettres -->
-
 <script src="lettres.js"></script>
-
 
 
 <script>
 
 
-const param =
+const parametres =
 
 new URLSearchParams(
 
@@ -93,13 +90,19 @@ const date =
 
 new Date(
 
-param.get("date")
+parametres.get("date")
 
 );
 
 
 
-const dateAffichee =
+const cleDate =
+
+date.toISOString().split("T")[0];
+
+
+
+document.getElementById("dateLettre").innerHTML =
 
 date.toLocaleDateString(
 
@@ -119,26 +122,13 @@ year:"numeric"
 
 
 
-document.getElementById("dateLettre").innerHTML =
+const lettre =
 
-dateAffichee;
-
-
-
-const dateCle =
-
-date.toISOString().split("T")[0];
+lettres[cleDate];
 
 
 
-const lettreChoisie =
-
-lettres[dateCle];
-
-
-
-
-const texteLettre =
+const texte =
 
 document.getElementById("texteLettre");
 
@@ -164,19 +154,19 @@ document.getElementById("musique");
 
 
 
-if(lettreChoisie){
+if(lettre){
 
 
 
-texteLettre.innerHTML =
+texte.innerHTML =
 
-lettreChoisie.texte;
+lettre.texte;
 
 
 
-if(lettreChoisie.photo !== ""){
+if(lettre.photo){
 
-photo.src = lettreChoisie.photo;
+photo.src = lettre.photo;
 
 }
 
@@ -188,10 +178,9 @@ photo.style.display="none";
 
 
 
+if(lettre.video){
 
-if(lettreChoisie.video !== ""){
-
-video.src = lettreChoisie.video;
+video.src = lettre.video;
 
 }
 
@@ -203,10 +192,9 @@ video.style.display="none";
 
 
 
+if(lettre.musique){
 
-if(lettreChoisie.musique !== ""){
-
-musique.src = lettreChoisie.musique;
+musique.src = lettre.musique;
 
 }
 
@@ -223,8 +211,7 @@ musique.style.display="none";
 else{
 
 
-
-texteLettre.innerHTML =
+texte.innerHTML =
 
 `
 
@@ -236,7 +223,11 @@ Elle voyage encore jusqu'à son jour.
 
 `;
 
+
+
 }
+
+
 
 
 
