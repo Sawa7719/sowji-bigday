@@ -14,7 +14,7 @@
 
 <body>
 
-<div class="coffre">
+<div class="coffre" id="coffre">
 
 <div class="couvercle">
 👑
@@ -23,31 +23,78 @@
 <h1>Le Palais de Sowji</h1>
 
 <p>
-Bienvenue dans un jardin secret où chaque fleur cache une pensée,
-un souvenir et une émotion.
+
+Bienvenue dans un jardin secret.
+
 <br><br>
-Chaque jour, une nouvelle fleur s'ouvrira jusqu'au plus beau des jours.
+
+Chaque fleur renferme un souvenir,
+une pensée ou un morceau de mon cœur.
+
+<br><br>
+
+Lorsque tu seras prête,
+ouvre le palais...
+
 </p>
 
-<button onclick="ouvrirPalais()">
-🔐 Ouvrir le palais
+<button id="ouvrirBtn" onclick="ouvrirPalais()">
+
+🔐 Ouvrir le Palais
+
 </button>
 
 </div>
 
 <script>
 
-function ouvrirPalais(){
+function creerPetale(){
 
-const coffre = document.querySelector(".coffre");
+const petale=document.createElement("div");
 
-coffre.classList.add("ouvert");
+petale.className="petale";
+
+const fleurs=["🌸","🌺","🌹","✨"];
+
+petale.innerHTML=fleurs[Math.floor(Math.random()*fleurs.length)];
+
+petale.style.left=Math.random()*100+"vw";
+
+petale.style.animationDuration=(4+Math.random()*5)+"s";
+
+petale.style.fontSize=(18+Math.random()*20)+"px";
+
+document.body.appendChild(petale);
 
 setTimeout(function(){
 
-window.location.href = "jardin.html";
+petale.remove();
 
-},1500);
+},9000);
+
+}
+
+
+
+function ouvrirPalais(){
+
+const coffre=document.getElementById("coffre");
+
+const bouton=document.getElementById("ouvrirBtn");
+
+bouton.style.display="none";
+
+coffre.classList.add("ouvert");
+
+let pluie=setInterval(creerPetale,150);
+
+setTimeout(function(){
+
+clearInterval(pluie);
+
+window.location.href="jardin.html";
+
+},1800);
 
 }
 
