@@ -552,3 +552,163 @@ transform:scale(1);
 
 
 }
+/* =================================
+   PARCHEMIN QUI SE DEROULE
+================================= */
+
+
+.parchemin {
+
+position:relative;
+
+overflow:hidden;
+
+transform-origin:top;
+
+animation:deroulement 1.8s ease;
+
+}
+
+
+
+/* Rouleaux en bois */
+
+
+.parchemin::before,
+
+.parchemin::after {
+
+
+content:"";
+
+
+position:absolute;
+
+
+left:-25px;
+
+
+right:-25px;
+
+
+height:35px;
+
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#5b3516,
+
+#c08a45,
+
+#5b3516
+
+);
+
+
+border-radius:30px;
+
+
+box-shadow:
+
+0 5px 15px rgba(0,0,0,.4);
+
+
+}
+
+
+
+.parchemin::before {
+
+top:-18px;
+
+}
+
+
+
+.parchemin::after {
+
+bottom:-18px;
+
+}
+
+
+
+/* Texture intérieure */
+
+
+.contenu-lettre {
+
+
+background:
+
+radial-gradient(
+
+circle at center,
+
+rgba(255,255,255,.35),
+
+transparent
+
+);
+
+
+padding:25px;
+
+
+border-radius:15px;
+
+
+}
+
+
+
+/* Animation */
+
+
+@keyframes deroulement {
+
+
+0% {
+
+
+transform:
+
+scaleY(0);
+
+
+opacity:0;
+
+
+}
+
+
+60% {
+
+
+transform:
+
+scaleY(1.05);
+
+
+}
+
+
+100% {
+
+
+transform:
+
+scaleY(1);
+
+
+opacity:1;
+
+
+}
+
+
+}
