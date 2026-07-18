@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Le grand jour</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="parchemin">
+
+
+<h1>
+🌹 Le plus beau des jours
+</h1>
+
+
+<div class="contenu-lettre">
+
+
+<p>
+
+Le voyage touche à sa fin...
+
+<br><br>
+
+Toutes les fleurs ont poussé,
+toutes les lettres ont trouvé leur chemin.
+
+<br><br>
+
+Aujourd'hui, la dernière fleur s'ouvre.
+
+<br><br>
+
+✨
+
+</p>
+
+
+
+<div id="souvenirs"></div>
+
+
+
+</div>
+
+
+<br>
+
+
+<button onclick="retourJardin()">
+
+Retour au jardin
+
+</button>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let zone =
+
+document.getElementById("souvenirs");
+
+
+
+let nombre = 0;
+
+
+
+for(let cle in localStorage){
+
+
+if(cle.startsWith("sowji-")){
+
+
+let lettre =
+
+JSON.parse(
+
+localStorage.getItem(cle)
+
+);
+
+
+
+if(lettre.message){
+
+
+nombre++;
+
+
+zone.innerHTML +=
+
+
+`
+
+<p>
+
+🌸 Souvenir du ${cle.replace("sowji-","")}
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+}
+
+
+
+}
+
+
+
+
+if(nombre===0){
+
+
+zone.innerHTML =
+
+`
+
+<p>
+
+Le jardin garde encore ses secrets...
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+
+function retourJardin(){
+
+
+window.location.href="jardin.html";
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
