@@ -12,204 +12,142 @@
 
 </head>
 
-
 <body>
 
-
 <div class="parchemin">
-
 
 <h1 id="titreLettre">
 📜 Une lettre pour toi
 </h1>
+
 <div class="sceau-royal">
 👑
 </div>
 
 <div class="sceau-date">
-
 <span id="dateLettre"></span>
-
 </div>
 
-
-
 <div class="contenu-lettre">
-
 
 <p id="texteLettre">
 La lettre voyage encore...
 </p>
 
-
-
 <img id="photo" alt="">
-
-
 
 <audio id="musique" autoplay loop></audio>
 
-
-
 </div>
-
-
 
 <button onclick="retourJardin()">
-
 🌿 Retour au jardin
-
 </button>
 
-
 </div>
-
-
-
-
 
 <script src="lettres.js"></script>
 
-
 <script>
 
+// =====================
+// RÉCUPÉRATION DE LA DATE
+// =====================
 
-const date =
-new Date(cleDate + "T12:00:00");
+const parametres = new URLSearchParams(window.location.search);
 
-dateLettre.innerHTML =
-date.toLocaleDateString(
-"fr-FR",
-{
-day:"numeric",
-month:"long",
-year:"numeric"
+const cleDate = parametres.get("date");
+
+// =====================
+// ÉLÉMENTS HTML
+// =====================
+
+const titreLettre = document.getElementById("titreLettre");
+const texteLettre = document.getElementById("texteLettre");
+const dateLettre = document.getElementById("dateLettre");
+const photo = document.getElementById("photo");
+const musique = document.getElementById("musique");
+
+// =====================
+// AFFICHAGE DE LA DATE
+// =====================
+
+if(cleDate){
+
+    const date = new Date(cleDate + "T12:00:00");
+
+    dateLettre.innerHTML = date.toLocaleDateString(
+        "fr-FR",
+        {
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
 }
-);
 
+// =====================
+// RECHERCHE DE LA LETTRE
+// =====================
 
-
-const titreLettre =
-document.getElementById("titreLettre");
-
-
-const texteLettre =
-document.getElementById("texteLettre");
-
-
-const dateLettre =
-document.getElementById("dateLettre");
-
-
-const photo =
-document.getElementById("photo");
-
-
-const musique =
-document.getElementById("musique");
-
-
-
-
-dateLettre.innerHTML =
-date.toLocaleDateString(
-"fr-FR",
-{
-day:"numeric",
-month:"long",
-year:"numeric"
-}
-);
-
-
-
-
-
-let lettre = lettres[cleDate];
-
-
-
+const lettre = lettres[cleDate];
 
 if(lettre){
+      titreLettre.innerHTML = "📜 " + lettre.titre;
 
+    texteLettre.innerHTML = lettre.texte;
 
-titreLettre.innerHTML =
-"📜 " + lettre.titre;
+    if(lettre.photo){
 
+        photo.src = lettre.photo;
+        photo.style.display = "block";
 
+    }else{
 
-texteLettre.innerHTML =
-lettre.texte;
+        photo.style.display = "none";
 
+    }
 
+    if(lettre.musique){
 
-if(lettre.photo){
+        musique.src = lettre.musique;
+        musique.volume = 0.35;
 
-photo.src = lettre.photo;
+        musique.play().catch(()=>{
 
-}
+            console.log("Lecture automatique bloquée.");
 
-else{
+        });
 
-photo.style.display="none";
+    }else{
 
-}
+        musique.style.display = "none";
 
+    }
 
+}else{
 
-if(lettre.musique){
+    titreLettre.innerHTML = "📜 Lettre inconnue";
 
+    texteLettre.innerHTML = "Cette lettre n'est pas encore arrivée.";
 
-musique.src =
-lettre.musique;
-
-
-musique.volume = 0.35;
-
-
-musique.play().catch(()=>{
-
-console.log("Lecture automatique bloquée par le navigateur");
-
-});
-
+    photo.style.display = "none";
+    musique.style.display = "none";
 
 }
 
-else{
-
-musique.style.display="none";
-
-}
-
-
-}
-
-else{
-
-
-titreLettre.innerHTML =
-"📜 Lettre inconnue";
-
-
-texteLettre.innerHTML =
-"Cette lettre n'est pas encore arrivée.";
-
-
-}
-
-
-
+// =====================
+// RETOUR AU JARDIN
+// =====================
 
 function retourJardin(){
 
-window.location.href="jardin.html";
+    window.location.href = "jardin.html";
 
 }
 
-
 </script>
-
 
 </body>
 
